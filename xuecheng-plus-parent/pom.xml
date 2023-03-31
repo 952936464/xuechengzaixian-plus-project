@@ -22,43 +22,43 @@
         <fastjson.version>1.2.83</fastjson.version>
         <druid-spring-boot-starter.version>1.2.8</druid-spring-boot-starter.version>
         <mysql-connector-java.version>8.0.30</mysql-connector-java.version>
-        <mybatis-plus-boot-starter.version>3.4.1</mybatis-plus-boot-starter.version>
-        <commons-lang.version>2.6</commons-lang.version>
-        <minio.version>8.4.3</minio.version>
-        <xxl-job-core.version>2.3.1</xxl-job-core.version>
-        <swagger-annotations.version>1.5.20</swagger-annotations.version>
-        <commons-lang3.version>3.10</commons-lang3.version>
-        <okhttp.version>4.8.1</okhttp.version>
-        <swagger-spring-boot-starter.version>1.9.0.RELEASE</swagger-spring-boot-starter.version>
-        <elasticsearch.version>7.12.1</elasticsearch.version>
-    </properties>
+       <mybatis-plus-boot-starter.version>3.4.1</mybatis-plus-boot-starter.version>
+       <commons-lang.version>2.6</commons-lang.version>
+       <minio.version>8.4.3</minio.version>
+       <xxl-job-core.version>2.3.1</xxl-job-core.version>
+       <swagger-annotations.version>1.5.20</swagger-annotations.version>
+       <commons-lang3.version>3.10</commons-lang3.version>
+       <okhttp.version>4.8.1</okhttp.version>
+       <swagger-spring-boot-starter.version>1.9.0.RELEASE</swagger-spring-boot-starter.version>
+       <elasticsearch.version>7.12.1</elasticsearch.version>
+   </properties>
 
 
-    <dependencyManagement>
-        <dependencies>
+   <dependencyManagement>
+       <dependencies>
 
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- lombok，简化类的构建-->
+           <dependency>
+               <groupId>org.springframework.cloud</groupId>
+               <artifactId>spring-cloud-dependencies</artifactId>
+               <version>${spring-cloud.version}</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-dependencies</artifactId>
+               <version>${spring-boot.version}</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+           <dependency>
+               <groupId>com.alibaba.cloud</groupId>
+               <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+               <version>${spring-cloud-alibaba.version}</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+           <!-- lombok，简化类的构建-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
