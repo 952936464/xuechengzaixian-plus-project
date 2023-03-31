@@ -21,6 +21,6 @@ public class PageParams {
 
     public PageParams(long pageNo, long pageSize){
         this.pageNo = pageNo;
-        this.pageSize =pageSize;
+        this.pageSize = pageSize;
     }
 }
