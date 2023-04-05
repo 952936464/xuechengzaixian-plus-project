@@ -1,0 +1,18 @@
+2023-04-05 18:00:09,932 DEBUG [http-nio-63040-exec-2][LogFormatUtils.java:91] - GET "/content/course", parameters={}
+2023-04-05 18:00:09,932 DEBUG [http-nio-63040-exec-2][LogFormatUtils.java:91] - GET "/content/course", parameters={}
+2023-04-05 18:00:09,948 WARN [http-nio-63040-exec-2][AbstractHandlerExceptionResolver.java:199] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2023-04-05 18:00:09,948 WARN [http-nio-63040-exec-2][AbstractHandlerExceptionResolver.java:199] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2023-04-05 18:00:09,948 DEBUG [http-nio-63040-exec-2][FrameworkServlet.java:1131] - Completed 405 METHOD_NOT_ALLOWED
+2023-04-05 18:00:09,948 DEBUG [http-nio-63040-exec-2][FrameworkServlet.java:1131] - Completed 405 METHOD_NOT_ALLOWED
+2023-04-05 18:00:09,949 DEBUG [http-nio-63040-exec-2][LogFormatUtils.java:91] - "ERROR" dispatch for GET "/content/error", parameters={}
+2023-04-05 18:00:09,949 DEBUG [http-nio-63040-exec-2][LogFormatUtils.java:91] - "ERROR" dispatch for GET "/content/error", parameters={}
+2023-04-05 18:00:09,949 DEBUG [http-nio-63040-exec-2][AbstractHandlerMapping.java:415] - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2023-04-05 18:00:09,949 DEBUG [http-nio-63040-exec-2][AbstractHandlerMapping.java:415] - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2023-04-05 18:00:09,956 DEBUG [http-nio-63040-exec-2][ContentNegotiatingViewResolver.java:348] - Selected 'text/html' given [text/html, text/html;q=0.8]
+2023-04-05 18:00:09,956 DEBUG [http-nio-63040-exec-2][ContentNegotiatingViewResolver.java:348] - Selected 'text/html' given [text/html, text/html;q=0.8]
+2023-04-05 18:00:09,962 DEBUG [http-nio-63040-exec-2][FrameworkServlet.java:1127] - Exiting from "ERROR" dispatch, status 405
+2023-04-05 18:00:09,962 DEBUG [http-nio-63040-exec-2][FrameworkServlet.java:1127] - Exiting from "ERROR" dispatch, status 405
+2023-04-05 18:00:14,218 DEBUG [HikariPool-1 housekeeper][HikariPool.java:421] - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-04-05 18:00:14,218 DEBUG [HikariPool-1 housekeeper][HikariPool.java:421] - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-04-05 18:00:14,218 DEBUG [HikariPool-1 housekeeper][HikariPool.java:517] - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2023-04-05 18:00:14,218 DEBUG [HikariPool-1 housekeeper][HikariPool.java:517] - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
