@@ -1,0 +1,9 @@
+###
+POST {{media_host}}/media/upload/coursefile
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="filedata"; filename="001.png"
+Content-Type: application/octet-stream
+
+< C:/Users/95293/Desktop/uploadtest/001.png
