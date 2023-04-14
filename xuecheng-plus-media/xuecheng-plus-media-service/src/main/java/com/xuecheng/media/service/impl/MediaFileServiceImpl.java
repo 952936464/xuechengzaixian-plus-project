@@ -9,10 +9,12 @@ import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
 import com.xuecheng.base.model.RestResponse;
 import com.xuecheng.media.mapper.MediaFilesMapper;
+import com.xuecheng.media.mapper.MediaProcessMapper;
 import com.xuecheng.media.model.dto.QueryMediaParamsDto;
 import com.xuecheng.media.model.dto.UploadFileParamsDto;
 import com.xuecheng.media.model.dto.UploadFileResultDto;
 import com.xuecheng.media.model.po.MediaFiles;
+import com.xuecheng.media.model.po.MediaProcess;
 import com.xuecheng.media.service.MediaFileService;
 import io.minio.*;
 import io.minio.messages.DeleteError;
@@ -57,6 +59,8 @@ public class MediaFileServiceImpl implements MediaFileService {
  MinioClient minioClient;
  @Autowired
  MediaFileService mediaFileService;
+ @Autowired
+ MediaProcessMapper mediaProcessMapper;
 
 
  @Override
@@ -108,7 +112,7 @@ public class MediaFileServiceImpl implements MediaFileService {
   * @return
   */
 
- private Boolean addMediaFilesToMinIo(String bucket, String localFilePath, String objectName, String mimeType) {
+ public Boolean addMediaFilesToMinIo(String bucket, String localFilePath, String objectName, String mimeType) {
 
   try {
    UploadObjectArgs uploadObjectArgs = UploadObjectArgs.builder()
@@ -196,6 +200,7 @@ public class MediaFileServiceImpl implements MediaFileService {
    mediaFiles.setStatus("1");
    mediaFiles.setAuditStatus("002003");
    int insert = mediaFilesMapper.insert(mediaFiles);
+   addWaitingTask(mediaFiles);
    if (insert <= 0) {
     log.debug("文件向数据库保存失败,bucket:{},objectName:{}", bucket, objectName);
     return null;
@@ -375,6 +380,31 @@ public class MediaFileServiceImpl implements MediaFileService {
    }
   }
   return  null;
+ }
+
+ /**
+  *
+  * @param mediaFiles 文件
+  *                   向等待表添加数据
+  */
+ private void addWaitingTask(MediaFiles mediaFiles){
+  String filename = mediaFiles.getFilename();
+  //文件扩展名
+  String extension = filename.substring(filename.lastIndexOf("."));
+  //根据文件扩展名获取mimetype
+  String mimeType = getMimeType(extension);
+  if(mimeType.equals("video/x-msvideo")){//如果是avi视频
+   MediaProcess mediaProcess = new MediaProcess();
+   BeanUtils.copyProperties(mediaFiles, mediaProcess);
+   //状态是待处理
+   mediaProcess.setStatus("1");
+   mediaProcess.setCreateDate(LocalDateTime.now());
+   mediaProcess.setFailCount(0);//失败次数默认为0
+   mediaProcess.setUrl(null);
+   mediaProcessMapper.insert(mediaProcess);
+  }
+
+
  }
 
  /**

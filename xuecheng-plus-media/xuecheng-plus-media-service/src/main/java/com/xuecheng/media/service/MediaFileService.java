@@ -8,6 +8,8 @@ import com.xuecheng.media.model.dto.UploadFileParamsDto;
 import com.xuecheng.media.model.dto.UploadFileResultDto;
 import com.xuecheng.media.model.po.MediaFiles;
 
+import java.io.File;
+
 /**
  * @description 媒资文件管理业务类
  * @author Mr.M
@@ -64,4 +66,13 @@ public interface MediaFileService {
   * @return
   */
  public RestResponse mergechunks(Long companyId, String fileMd5, int chunkTotal, UploadFileParamsDto uploadFileParamsDto);
+
+ /**
+  *
+  * @param bucket
+  * @param objectName
+  * @return
+  */
+ public File downLoadFileFormMinIo(String bucket, String objectName);
+ public Boolean addMediaFilesToMinIo(String bucket, String localFilePath, String objectName, String mimeType);
 }
