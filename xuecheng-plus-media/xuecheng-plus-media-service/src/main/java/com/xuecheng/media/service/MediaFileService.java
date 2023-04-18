@@ -75,4 +75,8 @@ public interface MediaFileService {
   */
  public File downLoadFileFormMinIo(String bucket, String objectName);
  public Boolean addMediaFilesToMinIo(String bucket, String localFilePath, String objectName, String mimeType);
+ /**
+  *根据媒资id获取媒资
+  */
+ MediaFiles getFileById(String mediaId);
 }

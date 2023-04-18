@@ -131,6 +131,12 @@ public class MediaFileServiceImpl implements MediaFileService {
   return false;
  }
 
+ @Override
+ public MediaFiles getFileById(String mediaId) {
+  MediaFiles mediaFiles = mediaFilesMapper.selectById(mediaId);
+  return mediaFiles;
+ }
+
  /**
   * 与前端约定上传到2023/04/10文件夹（例子）
   *
