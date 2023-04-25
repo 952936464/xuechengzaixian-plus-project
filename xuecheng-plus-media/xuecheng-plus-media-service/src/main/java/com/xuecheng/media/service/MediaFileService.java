@@ -35,7 +35,7 @@ public interface MediaFileService {
   * @param uploadFileParamsDto 文件信息
   * @return
   */
- public UploadFileResultDto uploadFile(Long companyId, String localFilePath, UploadFileParamsDto uploadFileParamsDto);
+ public UploadFileResultDto uploadFile(Long companyId, String localFilePath, UploadFileParamsDto uploadFileParamsDto,String objectName);
 
  public MediaFiles addMediaFilesToDb(Long companyId, String fileMd5, UploadFileParamsDto uploadFileParamsDto, String bucket_mediafiles, String objectName);
 

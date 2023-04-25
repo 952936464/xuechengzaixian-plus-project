@@ -28,6 +28,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -166,14 +167,17 @@ public class MediaFileServiceImpl implements MediaFileService {
 
  @Override
 
- public UploadFileResultDto uploadFile(Long companyId, String localFilePath, UploadFileParamsDto uploadFileParamsDto) {
+ public UploadFileResultDto uploadFile(Long companyId, String localFilePath, UploadFileParamsDto uploadFileParamsDto,String objectName) {
   String filename = uploadFileParamsDto.getFilename();
   String extension = filename.substring(filename.lastIndexOf("."));
   //得到mimeType
   String mimeType = getMimeType(extension);
   String defaultFolderPath = getDefaultFolderPath();
   String fileMd5 = getFileMd5(new File(localFilePath));
-  String objectName = defaultFolderPath + fileMd5 + extension;
+  if(StringUtils.isEmpty(objectName)){
+   objectName = defaultFolderPath + fileMd5 + extension;
+  }
+
   //上传文件到minio
   Boolean result = addMediaFilesToMinIo(bucket_mediafiles, localFilePath, objectName, mimeType);
   if (!result) {

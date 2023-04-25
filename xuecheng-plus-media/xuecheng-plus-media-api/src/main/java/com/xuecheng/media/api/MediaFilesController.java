@@ -42,7 +42,8 @@ public class MediaFilesController {
      */
     @ApiOperation("上传图片")
     @RequestMapping(value = "/upload/coursefile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public UploadFileResultDto upload(@RequestPart("filedata")MultipartFile filedata) throws IOException {
+    public UploadFileResultDto upload(@RequestPart("filedata")MultipartFile filedata,
+                                      @RequestParam(value = "objectName",required = false) String objectName )throws IOException {
         Long companyID = 1232141425L;
         //创建一个临时文件
         File tempFile = File.createTempFile("mniio",".temp");
@@ -53,7 +54,7 @@ public class MediaFilesController {
         uploadFileParamsDto.setFileSize(filedata.getSize());
         //文件类型
         uploadFileParamsDto.setFileType("001001");
-        UploadFileResultDto uploadFileResultDto = mediaFileService.uploadFile(companyID, localFilePath, uploadFileParamsDto);
+        UploadFileResultDto uploadFileResultDto = mediaFileService.uploadFile(companyID, localFilePath, uploadFileParamsDto,objectName);
         return uploadFileResultDto;
     }
 
